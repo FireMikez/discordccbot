@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-
+var fs = require('fs');
+var contents = fs.readFileSync('key', 'utf8');
 var StaticChannels = 0;
 var TempTalkChannel = 0;
 client.on('ready', () => {
@@ -52,9 +53,6 @@ client.on('voiceStateUpdate', (oldmember, newmember)=>{
     }
 }
 })
-var fs = require('fs');
- 
-fs.readFile('key', 'utf8', function(err, contents) {
-    client.login(contents);
-});
 
+ 
+client.login(contents);
