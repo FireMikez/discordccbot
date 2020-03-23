@@ -52,5 +52,9 @@ client.on('voiceStateUpdate', (oldmember, newmember)=>{
     }
 }
 })
+var fs = require('fs');
+ 
+fs.readFile('key', 'utf8', function(err, contents) {
+    client.login(contents);
+});
 
-client.login(process.env.BOT_TOKEN);
